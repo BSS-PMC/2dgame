@@ -1,0 +1,15 @@
+{
+  "name": "simple-2d-platformer-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve .",
+    "lint": "npx prettier --check .",
+    "format": "npx prettier --write ."
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5",
+    "serve": "^14.2.1"
+  }
+}

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple 2D Platformer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="hud">
+    <div class="title">Simple 2D Platformer</div>
+    <div class="stats">
+      <span id="coins">Coins: 0/0</span>
+      <span id="status">Reach the exit</span>
+    </div>
+    <!-- Achievements removed -->
+    <div class="controls">Move: A/D or Arrow keys • Jump: Space/W/Up • Reset: R • Menu: Esc</div>
+  </div>
+
+  <div class="timer">
+    <div id="timer-igt">IGT: 0.00</div>
+    <div id="timer-rt">RT: 0.00</div>
+  </div>
+
+  <div id="version-display" class="version-display" title="Click to increment patch">v.0.1.0</div>
+
+  <div id="username-display" class="username-display hidden"></div>
+
+  <canvas id="game" width="960" height="540"></canvas>
+
+  <div id="home" class="menu" role="dialog" aria-modal="true" aria-label="Home menu">
+    <div class="menu-panel home-panel">
+      <div class="menu-header">
+        <div class="menu-title">Simple 2D Platformer</div>
+      </div>
+      <div class="menu-section">
+        <label class="checkbox-label">
+          <input type="checkbox" id="speedrun-toggle" />
+          Speedrun Mode
+        </label>
+      </div>
+      <div id="username-section" class="menu-section hidden">
+        <div class="username-input-wrapper">
+          <input type="text" id="username-input" class="text-input" placeholder="Enter username" maxlength="20" />
+          <div id="username-lock" class="username-lock"></div>
+        </div>
+        <div id="username-error" class="error-message hidden">input a username first</div>
+        <div id="username-lock-error" class="error-message hidden">You have to activate >>Speedrun<< to input a username</div>
+      </div>
+      <div class="menu-section">
+        <button id="start-btn" class="btn">Start Game</button>
+      </div>
+      <div class="menu-hint">Press Start to begin. Settings are available in-game (Esc).</div>
+      <div id="leaderboard-section" class="leaderboard-section">
+        <div class="leaderboard-title">Speedrun Leaderboard</div>
+        <table id="leaderboard-table" class="leaderboard-table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Username</th>
+              <th>Time (IGT)</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-body">
+          </tbody>
+        </table>
+        <div id="leaderboard-empty" class="leaderboard-empty">No times yet</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="menu" class="menu hidden" role="dialog" aria-modal="true" aria-label="Game menu">
+    <div class="menu-panel">
+      <div class="menu-header">
+        <div class="menu-title">Menu</div>
+        <button id="resume-btn" class="btn">Resume</button>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-title">Actions</div>
+        <div class="menu-row">
+          <button id="restart-btn" class="btn">Restart level</button>
+          <button id="reset-game-btn" class="btn">Restart game</button>
+            <button id="home-btn" class="btn">Return to Home</button>
+          </div>
+          <div class="menu-row">
+            <button id="fullscreen-btn" class="btn">Toggle Fullscreen</button>
+        </div>
+      </div>
+      <div class="menu-hint">Press Esc to toggle menu</div>
+    </div>
+  </div>
+
+  <div id="victory" class="menu hidden" role="dialog" aria-modal="true" aria-label="Victory screen">
+    <div class="menu-panel victory-panel">
+      <div class="victory-title">YOU WON!</div>
+      <div class="victory-times">
+        <div class="victory-time-igt" id="victory-igt">0.00</div>
+        <div class="victory-time-label-igt">IGT</div>
+        <div class="victory-time-rt" id="victory-rt">0.00</div>
+        <div class="victory-time-label-rt">RT</div>
+      </div>
+      <button id="victory-home-btn" class="btn">Return to Home</button>
+    </div>
+  </div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
